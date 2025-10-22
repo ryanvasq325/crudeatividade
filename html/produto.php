@@ -56,11 +56,11 @@
 
     <!-- Modal de cadastro -->
     <div class="modal fade" id="cadastroProduto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="cadastroProdutoLabel" aria-hidden="true">
+      aria-labelledby="cadastroProduto" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="cadastroProdutoLabel">Cadastro de Produto</h1>
+            <h1 class="modal-title fs-5" id="cadastroProduto">Cadastro de Produto</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
           </div>
           <div class="modal-body">

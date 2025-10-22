@@ -86,8 +86,8 @@ async function Excluir() {
   $('#excluirProduto').modal('hide');
   document.getElementById('tr' + document.getElementById('id_produto').value).remove();
 }
-async function AlterarCliente(id) {
-  document.getElementById('id_cliente').value = id;
+async function AlterarProduto(id) {
+  document.getElementById('id_produto').value = id;
   document.getElementById('acao').value = 'editar';
   const form = document.getElementById('form');
   const formData = new FormData(form);
@@ -97,11 +97,14 @@ async function AlterarCliente(id) {
     mode: 'cors',
     cache: 'default'
   };
-  const response = await fetch('controllerselecionarcliente.php', option);
+  const response = await fetch('controllerselecionarproduto.php', option);
   const json = await response.json();
-  document.getElementById('nome_completo').value = json.nome_completo;
-  document.getElementById('cpf').value = json.cpf;
-  $('#cadastroCliente').modal('show');
+  document.getElementById('produto').value = json.produto;
+  document.getElementById('valor_compra').value = json.valor_compra;
+  document.getElementById('valor_venda').value = json.valor_venda;
+  document.getElementById('marca').value = json.marca;
+  document.getElementById('grupo').value = json.grupo;
+  $('#cadastroProduto').modal('show');
 }
 async function Update() {
   const form = document.getElementById('form');
@@ -116,7 +119,7 @@ async function Update() {
     mode: 'cors',
     cache: 'default'
   };
-  const response = await fetch('controllerupdate.php', option);
+  const response = await fetch('controllerupdateproduto.php', option);
   return await response.json();
 }
 salvarProduto.addEventListener('click', async () => {
