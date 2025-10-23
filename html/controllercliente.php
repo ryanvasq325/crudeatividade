@@ -6,7 +6,7 @@ $sobrenome = $_POST['sobrenome'];
 $cpf = $_POST['cpf'];
 $rg = $_POST['rg'];
 
-$sql = "insert into cliente (nome, sobrenome, cpf, rg,) values ('{$nome}', '{$sobrenome}', '{$cpf}','{$rg}');";
+$sql = "insert into cliente (nome, sobrenome, cpf, rg) values ('{$nome}', '{$sobrenome}', '{$cpf}','{$rg}');";
 $result = $conexao->exec($sql);
 if ($result) {
 $response = [

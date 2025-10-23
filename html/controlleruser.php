@@ -1,13 +1,14 @@
 <?php
-
 require_once 'Conexaouser.php';
 
-$nome_completo = $_POST['nome_completo'];
-$senha = $_POST['senha'];
+$nome = $_POST['nome'];
+$sobrenome = $_POST['sobrenome'];
 $cpf = $_POST['cpf'];
+$rg = $_POST['rg'];
+$senha = $_POST['senha'];
 $email = $_POST['email'];
 
-$sql = "insert into usuario (nome_completo,senha,cpf,email) values ('{$nome_completo}', '{$senha}', '{$cpf}', '{$email}');";
+$sql = "insert into usuario (nome, sobrenome, cpf, rg, senha, email) values ('{$nome}', '{$sobrenome}', '{$cpf}', '{$rg}', '{$senha}', '{$email}');";
 $result = $conexao->exec($sql);
 if ($result) {
 $response = [
