@@ -25,6 +25,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="/listausuario.php">Lista de Usuários</a>
+                        <a class="nav-link active" aria-current="page" href="/fornecedor.php">Lista de Fornecedores</a>
+                        <a class="nav-link active" aria-current="page" href="/produto.php">Lista de Produtos</a>
                     </div>
                 </div>
             </div>

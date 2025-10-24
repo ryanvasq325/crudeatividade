@@ -12,8 +12,27 @@
 <body data-bs-theme="dark">
   <div class="container mt-4">
 
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navegação</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="/listausuario.php">Lista de Usuários</a>
+                        <a class="nav-link active" aria-current="page" href="/listacliente.php">Lista de Clientes</a>
+                        <a class="nav-link active" aria-current="page" href="/produto.php">Lista de Produtos</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+      <br>
+      <br>
     <h2><i class="fa-solid fa-truck"></i> Lista de Fornecedores</h2>
     <hr>
+
 
     <!-- Botão Novo Fornecedor -->
     <button type="button" class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#cadastroFornecedor">

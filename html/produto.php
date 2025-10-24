@@ -16,20 +16,21 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Gerenciamento de Produtos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-          aria-label="Alternar navegação">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="/listafornecedor">Fornecedor</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navegação</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="/listausuario.php">Lista de Usuários</a>
+                        <a class="nav-link active" aria-current="page" href="/fornecedor.php">Lista de Fornecedores</a>
+                        <a class="nav-link active" aria-current="page" href="/listacliente.php">Lista de Clientes</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
     <div class="modal fade" id="excluirProduto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="excluirProdutoLabel" aria-hidden="true">
