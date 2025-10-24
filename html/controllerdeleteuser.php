@@ -1,18 +1,18 @@
 <?php
-require_once 'Conexao.php';
+require_once 'Conexaouser.php';
 
-$id = $_POST['id_cliente'] ?? null;
+$id = $_POST['id_usuario'] ?? null;
 
 if (empty($id)) {
     echo json_encode([
         'status' => false,
-        'msg' => 'ID do cliente não informado.'
+        'msg' => 'ID do usuário não informado.'
     ]);
     exit;
 }
 
 try {
-    $sql = "DELETE FROM cliente WHERE id = :id";
+    $sql = "DELETE FROM usuario WHERE id = :id";
     $stmt = $conexao->prepare($sql);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -20,17 +20,17 @@ try {
     if ($stmt->rowCount() > 0) {
         echo json_encode([
             'status' => true,
-            'msg' => 'Cliente excluído com sucesso!'
+            'msg' => 'Usuário excluído com sucesso!'
         ]);
     } else {
         echo json_encode([
             'status' => false,
-            'msg' => 'Cliente não encontrado ou já excluído.'
+            'msg' => 'Usuário não encontrado ou já excluído.'
         ]);
     }
 } catch (PDOException $e) {
     echo json_encode([
         'status' => false,
-        'msg' => 'Erro ao excluir cliente: ' . $e->getMessage()
+        'msg' => 'Erro ao excluir usuário: ' . $e->getMessage()
     ]);
 }

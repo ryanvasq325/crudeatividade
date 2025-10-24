@@ -1,5 +1,5 @@
 <?php
-require_once 'Conexao.php';
+include_once 'Conexao.php';
 
 $id = $_POST['id_cliente'] ?? null;
 
@@ -12,15 +12,15 @@ if (empty($id)) {
 }
 
 try {
+    $sql = "SELECT id, nome, sobrenome, cpf, rg, ativo 
+            FROM cliente 
+            WHERE id = :id_cliente";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindValue(':id_cliente', $id, PDO::PARAM_INT);
+    $stmt->execute();
 
-    $id = $_POST['id_cliente'];
-    $nome = $_POST['nome'];
-    $sobrenome = $_POST['sobrenome'];
-    $cpf = $_POST['cpf'];
-    $rg = $_POST['rg'];
-    $pesquisa = $_POST['pesquisa'];
-    $sql = "update cliente set nome = '{$nome}', sobrenome = '{$sobrenome}', cpf = '{$cpf}', rg = '{$rg}' where id = {$id}";
-    $cliente = $conexao->exec($sql);
+    $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+
     if (!$cliente) {
         echo json_encode([
             'status' => false,
@@ -31,7 +31,7 @@ try {
 
     echo json_encode([
         'status' => true,
-        'msg' => 'Alterado com sucesso!'
+        'data' => $cliente
     ]);
 } catch (PDOException $e) {
     echo json_encode([

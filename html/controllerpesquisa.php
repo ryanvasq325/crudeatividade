@@ -1,16 +1,21 @@
 <?php
+require_once 'Conexao.php';
 
-include_once 'Conexao.php';
-
-$pesquisa = $_POST['pesquisa'];
+$pesquisa = $_POST['pesquisa'] ?? '';
 $where = '';
-if (!is_null($pesquisa) and !empty($pesquisa)) {
-    $where = "where nome_completo ilike '%{$pesquisa}%' or cpf ilike '%{$pesquisa}%'";
+
+if (!empty($pesquisa)) {
+    $where = "WHERE nome ILIKE '%{$pesquisa}%' 
+              OR sobrenome ILIKE '%{$pesquisa}%' 
+              OR cpf ILIKE '%{$pesquisa}%'";
 }
-$sql = "select * from cliente $where";
+
+$sql = "SELECT id, nome, sobrenome, cpf, rg, ativo FROM cliente $where ORDER BY id DESC";
 $query = $conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
 $response = [
     'status' => true,
     'data' => $query
 ];
+
 echo json_encode($response);

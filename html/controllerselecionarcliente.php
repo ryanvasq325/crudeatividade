@@ -1,7 +1,21 @@
 <?php
+include_once 'Conexao.php';
 
-require_once 'Conexao.php';
-$id = $_POST['id_cliente'];
-$sql = "select id, nome_completo, cpf from cliente where id = $id";
-$cliente = $conexao->query($sql)->fetch(PDO::FETCH_ASSOC);
-echo json_encode($cliente);
+$id = $_POST['id_cliente'] ?? null;
+
+if (!$id) {
+    echo json_encode(['status' => false, 'msg' => 'ID inválido!']);
+    exit;
+}
+
+try {
+    $sql = "SELECT nome, sobrenome, cpf, rg FROM cliente WHERE $id = :id_cliente";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindValue(':id_cliente', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    echo json_encode($cliente);
+} catch (PDOException $e) {
+    echo json_encode(['status' => false, 'msg' => $e->getMessage()]);
+}
